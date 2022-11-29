@@ -5,4 +5,4 @@ It will be responsible for informing the user of the types of commands they can 
 
 
 def main():
-    return 0
+    print("Lookat me World!")

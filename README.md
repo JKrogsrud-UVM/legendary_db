@@ -1,5 +1,15 @@
-# Steps in building
 
-- pip install pytest
-    -   Documentation: https://docs.pytest.org/en/7.2.x/
--
+How to build:
+```
+docker build -t legendary_db .
+```
+How to run:
+```
+docker run legendary_db
+```
+
+How to run interactively
+```
+docker run -i legendary_db
+```
+

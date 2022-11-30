@@ -39,10 +39,16 @@ jobs:
     # To be able to use Docker
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
+    # Log in without broadcasting my token
+    - name: Loging in
+      run: |
+         echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
     # Build it!
     - name: Build Docker
       run: |
         docker build -t legendary_db .
+        docker tag legendary_db ghcr.io/jkrogsrud/legendary_db
+        docker push ghcr.io/jkrogsrud/legendary_db
     # TODO: Run pytest in Docker image or before?
     - name: Test with pytest
       run: |

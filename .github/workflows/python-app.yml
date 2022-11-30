@@ -45,5 +45,5 @@ jobs:
         docker build -t legendary_db .
     # TODO: Run pytest in Docker image or before?
     - name: Test with pytest
-        run: |
-          pytest
+      run: |
+        pytest

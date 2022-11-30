@@ -1,3 +1,7 @@
+Sources:
+
+https://github.com/docker/build-push-action
+https://hub.docker.com/_/python
 
 How to build:
 ```

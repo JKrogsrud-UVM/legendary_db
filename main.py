@@ -6,3 +6,6 @@ It will be responsible for informing the user of the types of commands they can 
 
 def main():
     print("Lookat me World!")
+
+if __name__ == '__main__':
+    main()

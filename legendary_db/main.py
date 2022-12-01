@@ -1,4 +1,4 @@
-from data import clean_list
+from legendary_db.data import clean_list
 
 """
 main.py will be responsible for interface with command line

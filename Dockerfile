@@ -8,9 +8,9 @@ COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY main.py ./
-COPY parse.py ./
-COPY data.py ./
+COPY legendary_db/main.py ./
+COPY legendary_db/parse.py ./
+COPY legendary_db/data.py ./
 COPY characters.csv ./
 
 CMD [ "python", "./main.py" ]

@@ -35,7 +35,7 @@ will occur from time to time.
 """
 def clean_data():
     # Repeatedly call helper function clean_line on every line of characters.csv
-    with open('characters.csv') as csvfile:
+    with open('../characters.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
             # Clean_line and store in database

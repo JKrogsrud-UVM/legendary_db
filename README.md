@@ -8,6 +8,8 @@ https://docs.github.com/en/packages/working-with-a-github-packages-registry/work
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#building-container-images
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#tagging-container-images
 https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#publishing-a-package-using-an-action
+
+
 How to build:
 ```
 docker build -t legendary_db .
@@ -30,4 +32,14 @@ docker tag legendary_db ghcr.io/jkrogsrud/legendary_db
 This pushes it to ghcr.io
 ```
 docker push ghcr.io/jkrogsrud/legendary_db
+```
+
+Locally remove an image
+```
+docker rmi ghcr.io/jkrogsrud/legendary_db:latest
+```
+
+Run the docker from container registry (ghcr = github container registry btw)
+```
+docker run ghcr.io/jkrogsrud/legendary_db:latest
 ```

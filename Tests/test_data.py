@@ -1,3 +1,5 @@
+from data import clean_list
+
 def test_data_one():
     assert True
 

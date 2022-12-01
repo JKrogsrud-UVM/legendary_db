@@ -96,6 +96,7 @@ def clean_list(line):
 
     classes.append(SET_DICT[card[-1]])
 
+    return cleaned_list
 
 """
 load_database should start a connection with the database (creating it if there is none)

@@ -1,5 +1,3 @@
-from data import *
-
 def test_data_one():
     assert True
 

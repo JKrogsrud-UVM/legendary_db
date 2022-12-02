@@ -33,13 +33,52 @@ interact with the database.
 Data is pulled from another source so cleaning it to a format that fits my database
 will occur from time to time.
 """
-def clean_data():
+def create_tables():
+    con = sqlite3.connect("legendary.db")
+    cur = con.cursor()
+
+    """
+    Create a table for characters
+    """
+    cur.execute("""
+                    CREATE TABLE character (
+                    name TEXT NOT NULL,
+                    team_affiliation TEXT,
+                    has_strength INTEGER,
+                    has_instinct INTEGER,
+                    has_covert INTEGER,
+                    has_tech INTEGER,
+                    has_ranged INTEGER,
+                    set TEXT
+                    PRIMARY KEY (name, set)
+                    );""")
+
+    """
+    Create a table for the adversaries
+    """
+    cur.execute("""
+                    CREATE TABLE adversary (
+                    name TEXT PRIMARY KEY NOT NULL,
+                    set TEXT);""")
+
+    """
+    Create a table for the henchmen
+    """
+    cur.execute("""
+                    CREATE TABLE henchmen (
+                    name TEXT PRIMARY KEY NOT NULL,
+                    set TEXT);""")
+
+
+def load_characters():
+    con = sqlite3.connect("legendary.db")  # initiates the database and creates it if not loaded
+    cur = con.cursor()
     # Repeatedly call helper function clean_line on every line of characters.csv
     with open('../data/characters.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
             # Clean_line and store in database
-            print(row)
+            clean_list(row)
 
 def clean_list(line):
     # every line of the .csv file looks like:
@@ -94,10 +133,7 @@ def clean_list(line):
     else:
         cleaned_list.append(False)
 
-
-    print(SET_DICT[line[-1]])
     cleaned_list.append(SET_DICT[line[-1]])
-    print(cleaned_list)
 
     return cleaned_list
 

@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.source=https://github.com/jkrogsrud/legendary_db
 
 WORKDIR /usr/src/app
 
-COPY data/requirements.txt ./
+COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 

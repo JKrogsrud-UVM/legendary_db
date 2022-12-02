@@ -35,7 +35,7 @@ will occur from time to time.
 """
 def clean_data():
     # Repeatedly call helper function clean_line on every line of characters.csv
-    with open('../characters.csv') as csvfile:
+    with open('../data/characters.csv') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
             # Clean_line and store in database
@@ -60,7 +60,7 @@ def clean_list(line):
 
     classes = []
 
-    for card in line[2:-2]:
+    for card in line[2:-1]:
         # check if a / is present
         class_split = re.split('/|\[|\]', card)
         for h_class in class_split:
@@ -94,7 +94,10 @@ def clean_list(line):
     else:
         cleaned_list.append(False)
 
-    classes.append(SET_DICT[card[-1]])
+
+    print(SET_DICT[line[-1]])
+    cleaned_list.append(SET_DICT[line[-1]])
+    print(cleaned_list)
 
     return cleaned_list
 

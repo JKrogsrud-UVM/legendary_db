@@ -41,3 +41,9 @@ output: ["Joe Fixit, Grey Hulk", "Crime Syndicate", True, True, True, False, Fal
 def test_clean_line_four():
     assert clean_list(["Joe Fixit, Grey Hulk", "Crime Syndicate", "Strength", "Covert", "Strength [Instinct]", "Covert", "WWH"]) == \
            ["Joe Fixit, Grey Hulk", "Crime Syndicate", True, True, True, False, False, "World War Hulk"]
+
+
+test_clean_line_one()
+test_clean_line_two()
+test_clean_line_three()
+test_clean_line_four()

@@ -4,13 +4,13 @@ LABEL org.opencontainers.image.source=https://github.com/jkrogsrud/legendary_db
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+COPY data/requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY legendary_db/main.py ./
 COPY legendary_db/parse.py ./
 COPY legendary_db/data.py ./
-COPY characters.csv ./
+COPY data/characters.csv ./
 
 CMD [ "python", "./main.py" ]

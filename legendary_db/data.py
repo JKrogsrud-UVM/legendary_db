@@ -169,7 +169,6 @@ def load_scheme(db_path, scheme_data_path):
             exec_str = "INSERT OR IGNORE INTO scheme(name, expansion) " \
                        "VALUES('" + str(row[0]) + "','" + str(SET_DICT[row[1]]) + "');"
             cur.execute(exec_str)
-            print(exec_str)
             con.commit()
 
     con.close()

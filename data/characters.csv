@@ -5,7 +5,7 @@ Angel,X-Men,Covert,Strength,Instinct,Strength,DC
 Angel Noir,X-Men,Instinct,Strength,Instinct,Covert,LN
 Ant-Man,Avengers,Tech,Tech,Strength,Tech,AM
 Apocalyptic Kitty Pryde,X-Men,Covert,Tech,Covert/Tech,Covert,SW1
-Arkon the Magnificent,,Covert/Strength,Range,Instinct,Instinct,SW2
+Arkon the Magnificent,None,Covert/Strength,Range,Instinct,Instinct,SW2
 Aurora & Northstar,X-Men,Covert,Range/Strength,Range,Instinct,XM
 Banshee,X-Men,Covert,Range,Range,Range,XM
 Beast,Illuminati,Strength/Tech,Strength/Tech,Strength/Tech,Strength/Tech,SW2
@@ -40,7 +40,7 @@ Daredevil,Avengers,Instinct,Covert,Instinct/Strength,Covert,CW
 Daredevil,Marvel Knights,Strength,Instinct,Covert,Instinct,DC
 Daredevil Noir,Marvel Knights,Covert,Instinct,Covert,Instinct,LN
 Dazzler,X-Men,Range,Instinct,Tech,Range,XM
-Deadpool,,Tech,Covert,Instinct,Instinct,B
+Deadpool,None,Tech,Covert,Instinct,Instinct,B
 Deadpool,Mercs for Money,Instinct,Tech,Covert,Strength,DP
 Domino,X-Force,Tech,Instinct,Tech,Covert,DC
 Dr. Octopus,Sinister Six,Tech,Tech,Strength,Tech,V
@@ -69,7 +69,7 @@ Hawkeye,Avengers,Instinct,Tech,Tech,Tech,B
 Hercules,Avengers,Instinct,Strength/Tech,Strength,Strength,CW
 High Tech Spiderman,Spider Friends,Covert,Tech,Tech,Tech,SH
 Hiroim,Warbound,Covert,Covert [Strength],Covert,Instinct,WWH
-Howard the Duck,,Instinct,Covert,Instinct,Tech,D
+Howard the Duck,None,Instinct,Covert,Instinct,Tech,D
 Hulk,Avengers,Strength,Instinct,Strength,Strength,B
 Hulkbuster Iron Man,Avengers,Tech,Strength,Tech [Tech],Tech,WWH
 Hulkling,Avengers,Strength,Covert/Strength,Covert,Covert,CW
@@ -98,7 +98,7 @@ Luke Cage,Avengers,Strength,Instinct/Strength,Instinct,Strength,CW
 Luke Cage Noir,Marvel Knights,Strength,Covert,Strength,Strength,LN
 Magik,X-Men,Range,Covert,Covert/Range,Covert,SW1
 Magneto,Brotherhood,Strength,Range,Range,Range,V
-Man-Thing,,Strength,Instinct,Covert,Strength,D
+Man-Thing,None,Strength,Instinct,Covert,Strength,D
 Maximus,Cabal,Tech,Covert,Covert/Tech,Tech,SW1
 Miek the Unhived,Warbound,Instinct,Instinct,Instinct,Covert [Strength],WWH
 Moon Knight,Marvel Knights,Tech,Instinct,Tech,Instinct,PtTR
@@ -119,7 +119,7 @@ Old Man Logan,X-Men,Instinct,Covert/Instinct,Instinct,Instinct,SW1
 Patriot,Avengers,Instinct,Strength,Covert/Tech,Tech,CW
 Peter Parker,Avengers,Tech,Instinct,Instinct/Tech,Instinct,CW
 "Peter Parker, Homecoming",Spider Friends,Instinct,Covert,Tech,Strength,SH
-Peter's Allies,Spider Friends,Covert,Covert,Instinct,Covert,SH
+Peters Allies,Spider Friends,Covert,Covert,Instinct,Covert,SH
 Phoenix,X-Men,Strength,Range,Covert,Strength,XM
 Phoenix Force Cyclops,X-Men,Covert,Range,Instinct/Range,Range,SW2
 Polaris,X-Men,Range,Covert,Covert,Covert,XM
@@ -137,7 +137,7 @@ Sentry,Avengers,Covert [Strength],Strength,Range [Covert],Range,WWH
 Shang-Chi,Marvel Knights,Instinct,Covert/Instinct,Covert,Instinct,SW2
 She-Hulk,Avengers,Strength,Instinct [Strength],Strength,Strength,WWH
 Silk,Spider Friends,Range,Instinct/Strength,Covert,Tech,SW2
-Silver Surfer,,Strength,Covert,Range,Range,F4
+Silver Surfer,None,Strength,Covert,Range,Range,F4
 "Skaar, Son of Hulk",Avengers,Strength,Instinct,Instinct [Strength],Strength,WWH
 Skadi,Hydra,Tech,Tech,Strength,Covert,FI
 Skirn,Foes of Asgard,Instinct,Covert,Range,Strength,FI
@@ -167,7 +167,7 @@ Time-Traveling Jean Grey,X-Men,Covert,Instinct,Covert/Range,Covert,SW2
 Tony Stark,Avengers,Tech,Tech,Range,Range,SH
 Totally Awesome Hulk,Champions,Strength,Tech,Strength,Tech,C
 Ultimate Spiderman,Spider Friends,Strength,Instinct/Strength,Tech,Covert,SW1
-Ultron,,Tech,Tech,Tech,Tech,V
+Ultron,None,Tech,Tech,Tech,Tech,V
 Venom,Sinister Six,Strength,Instinct,Strength,Instinct,V
 Venom,Venomverse,Strength,Instinct,Instinct,Instinct,VNM
 Venom Rocket,Venomverse,Instinct,Tech,Range,Tech,VNM

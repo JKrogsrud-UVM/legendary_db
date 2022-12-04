@@ -33,15 +33,15 @@ interact with the database.
 Data is pulled from another source so cleaning it to a format that fits my database
 will occur from time to time.
 """
-def create_tables():
-    con = sqlite3.connect("legendary.db")
+def create_tables(db_path):
+    con = sqlite3.connect(db_path)
     cur = con.cursor()
 
     """
     Create a table for characters
     """
     cur.execute("""
-                    CREATE TABLE character (
+                    CREATE TABLE IF NOT EXISTS character (
                     name TEXT NOT NULL,
                     team_affiliation TEXT,
                     has_strength INTEGER,
@@ -49,36 +49,70 @@ def create_tables():
                     has_covert INTEGER,
                     has_tech INTEGER,
                     has_ranged INTEGER,
-                    set TEXT
-                    PRIMARY KEY (name, set)
+                    expansion TEXT NOT NULL,
+                    PRIMARY KEY (name, expansion)
                     );""")
 
     """
     Create a table for the adversaries
     """
     cur.execute("""
-                    CREATE TABLE adversary (
+                    CREATE TABLE IF NOT EXISTS adversary (
                     name TEXT PRIMARY KEY NOT NULL,
-                    set TEXT);""")
+                    expansion TEXT);""")
 
     """
     Create a table for the henchmen
     """
     cur.execute("""
-                    CREATE TABLE henchmen (
+                    CREATE TABLE IF NOT EXISTS henchmen (
                     name TEXT PRIMARY KEY NOT NULL,
-                    set TEXT);""")
+                    expansion TEXT);""")
 
+    """
+    Create a table for the masterminds
+    """
+    cur.execute("""
+                    CREATE TABLE IF NOT EXISTS mastermind (
+                    name TEXT PRIMARY KEY NOT NULL,
+                    expansion TEXT);""")
 
-def load_characters():
-    con = sqlite3.connect("legendary.db")  # initiates the database and creates it if not loaded
+    """
+    Create a table for the schemes
+    """
+    cur.execute("""
+                    CREATE TABLE IF NOT EXISTS scheme (
+                    name TEXT PRIMARY KEY NOT NULL,
+                    expansion TEXT);""")
+
+    con.close()
+
+def load_characters(db_path, char_data_path):
+    con = sqlite3.connect(db_path)  # initiates the database and creates it if not loaded
     cur = con.cursor()
     # Repeatedly call helper function clean_line on every line of characters.csv
-    with open('../data/characters.csv') as csvfile:
+    with open(char_data_path) as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
             # Clean_line and store in database
-            clean_list(row)
+            cleaned = clean_list(row)
+            #print(cleaned)
+            exec_str = "INSERT OR IGNORE INTO character(name, team_affiliation, has_strength, has_instinct," \
+                       " has_covert, has_tech, has_ranged, expansion) " \
+                       "VALUES('" + str(cleaned[0]) + "','" + str(cleaned[1]) + "'"
+            for index in range(2, 7):
+                if cleaned[index]:
+                    exec_str += ",1"
+                else:
+                    exec_str += ",0"
+            exec_str += ",'"
+            exec_str += cleaned[-1]
+            exec_str += "');"
+            print(exec_str)
+            cur.execute(exec_str)
+            con.commit()
+
+    con.close()
 
 def clean_list(line):
     # every line of the .csv file looks like:

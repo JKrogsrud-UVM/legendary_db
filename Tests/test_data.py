@@ -1,4 +1,7 @@
 from legendary_db.data import clean_list
+from legendary_db.data import create_tables
+from legendary_db.data import load_characters
+import sqlite3
 
 def test_data_one():
     assert True
@@ -42,8 +45,61 @@ def test_clean_line_four():
     assert clean_list(["Joe Fixit, Grey Hulk", "Crime Syndicate", "Strength", "Covert", "Strength [Instinct]", "Covert", "WWH"]) == \
            ["Joe Fixit, Grey Hulk", "Crime Syndicate", True, True, True, False, False, "World War Hulk"]
 
+"""
+tests whether the Tables have been created by checking their table names exist in sqlite_master
+output: 5
+"""
+def test_create_tables_one():
+    create_tables("../legendary.db")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+    result = cur.execute("""SELECT name
+                            FROM sqlite_master
+                            WHERE type ='table' AND name NOT LIKE 'sqlite_%';""")
+    check = result.fetchall()
+    assert check == [('character',), ('adversary',), ('henchmen',), ('mastermind',), ('scheme',)]
+
+"""
+Test a basic SELECT statement to verify characters have been inserted correctly
+
+"""
+def test_load_characters_one():
+    load_characters("../legendary.db", "../data/characters.csv")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+
+    select_statement = """
+                        SELECT *
+                        FROM character 
+                        WHERE character.name = 'Angel';"""
+
+    result = cur.execute(select_statement).fetchall()
+    con.close()
+    assert result == [('Angel', 'X-Men', 1, 1, 1, 0, 0, 'Dark City'), ]
+
+"""
+Tests a search with name that will have multiple results
+"""
+def test_load_characters_two():
+    load_characters("../legendary.db", "../data/characters.csv")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+
+    select_statement = """
+                            SELECT *
+                            FROM character 
+                            WHERE character.name = 'Venom';"""
+
+    result = cur.execute(select_statement).fetchall()
+    con.close()
+    assert result == [('Venom','Venomverse',1,1,0,0,0,'Venom'),('Venom','Sinister Six',1,1,0,0,0,'Villains'),]
 
 test_clean_line_one()
 test_clean_line_two()
 test_clean_line_three()
 test_clean_line_four()
+
+test_create_tables_one()
+
+test_load_characters_one()
+test_load_characters_two()

@@ -2,6 +2,8 @@ from legendary_db.data import clean_list
 from legendary_db.data import create_tables
 from legendary_db.data import load_characters
 from legendary_db.data import load_adversaries
+from legendary_db.data import load_mastermind
+from legendary_db.data import load_scheme
 import sqlite3
 
 def test_data_one():
@@ -96,7 +98,7 @@ def test_load_characters_two():
     assert result == [('Venom','Venomverse',1,1,0,0,0,'Venom'),('Venom','Sinister Six',1,1,0,0,0,'Villains'),]
 
 """
-Tests basic adversary input
+Tests basic adversary loading
 """
 def test_load_adversary_one():
     load_adversaries("../legendary.db", "../data/adversaries.csv")
@@ -112,6 +114,57 @@ def test_load_adversary_one():
     con.close()
     assert result == [('Code Red', 'World War Hulk'),]
 
+"""
+Tests basic henchmen loading 
+"""
+def test_load_henchmen_one():
+    load_adversaries("../legendary.db", "../data/henchmen.csv")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+
+    select_statement = """
+                                    SELECT *
+                                    FROM henchmen 
+                                    WHERE adversary.name = 'Phalanx';"""
+
+    result = cur.execute(select_statement).fetchall()
+    con.close()
+    assert result == [('Phalanx', 'Dark City'),]
+
+"""
+Tests basic mastermind loading
+"""
+def test_load_mastermind_one():
+    load_mastermind("../legendary.db", "../data/masterminds.csv")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+
+    select_statement = """
+                                    SELECT *
+                                    FROM mastermind 
+                                    WHERE mastermind.name = 'Dr. Doom';"""
+
+    result = cur.execute(select_statement).fetchall()
+    con.close()
+    assert result == [('Dr. Doom', 'Base'),]
+
+"""
+Tests basic scheme loading
+"""
+def test_load_scheme_one():
+    load_scheme("../legendary.db", "../data/schemes.csv")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+
+    select_statement = """
+                                    SELECT *
+                                    FROM scheme 
+                                    WHERE scheme.name = 'The Traitor';"""
+
+    result = cur.execute(select_statement).fetchall()
+    con.close()
+    assert result == [('The Traitor', 'Fear Itself'),]
+
 test_clean_line_one()
 test_clean_line_two()
 test_clean_line_three()
@@ -123,3 +176,7 @@ test_load_characters_one()
 test_load_characters_two()
 
 test_load_adversary_one()
+
+test_load_mastermind_one()
+
+test_load_scheme_one()

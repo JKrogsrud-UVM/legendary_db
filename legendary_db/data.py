@@ -108,7 +108,6 @@ def load_characters(db_path, char_data_path):
             exec_str += ",'"
             exec_str += cleaned[-1]
             exec_str += "');"
-            print(exec_str)
             cur.execute(exec_str)
             con.commit()
 
@@ -117,7 +116,6 @@ def load_characters(db_path, char_data_path):
 def load_adversaries(db_path, adv_data_path):
     con = sqlite3.connect(db_path)  # initiates the database and creates it if not loaded
     cur = con.cursor()
-    # Repeatedly call helper function clean_line on every line of characters.csv
     with open(adv_data_path) as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in reader:
@@ -125,8 +123,53 @@ def load_adversaries(db_path, adv_data_path):
             # print(cleaned)
             exec_str = "INSERT OR IGNORE INTO adversary(name, expansion) " \
                        "VALUES('" + str(row[0]) + "','" + str(SET_DICT[row[1]]) + "');"
-            print(exec_str)
             cur.execute(exec_str)
+            con.commit()
+
+    con.close()
+
+def load_henchmen(db_path, hench_data_path):
+    con = sqlite3.connect(db_path)  # initiates the database and creates it if not loaded
+    cur = con.cursor()
+    with open(hench_data_path) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        for row in reader:
+
+            # print(cleaned)
+            exec_str = "INSERT OR IGNORE INTO henchmen(name, expansion) " \
+                       "VALUES('" + str(row[0]) + "','" + str(SET_DICT[row[1]]) + "');"
+            cur.execute(exec_str)
+            con.commit()
+
+    con.close()
+
+def load_mastermind(db_path, mast_data_path):
+    con = sqlite3.connect(db_path)  # initiates the database and creates it if not loaded
+    cur = con.cursor()
+    with open(mast_data_path) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        for row in reader:
+
+            # print(cleaned)
+            exec_str = "INSERT OR IGNORE INTO mastermind(name, expansion) " \
+                       "VALUES('" + str(row[0]) + "','" + str(SET_DICT[row[1]]) + "');"
+            cur.execute(exec_str)
+            con.commit()
+
+    con.close()
+
+def load_scheme(db_path, scheme_data_path):
+    con = sqlite3.connect(db_path)  # initiates the database and creates it if not loaded
+    cur = con.cursor()
+    with open(scheme_data_path) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        for row in reader:
+
+            # print(cleaned)
+            exec_str = "INSERT OR IGNORE INTO scheme(name, expansion) " \
+                       "VALUES('" + str(row[0]) + "','" + str(SET_DICT[row[1]]) + "');"
+            cur.execute(exec_str)
+            print(exec_str)
             con.commit()
 
     con.close()

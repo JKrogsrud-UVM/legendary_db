@@ -1,6 +1,7 @@
 from legendary_db.data import clean_list
 from legendary_db.data import create_tables
 from legendary_db.data import load_characters
+from legendary_db.data import load_adversaries
 import sqlite3
 
 def test_data_one():
@@ -94,6 +95,23 @@ def test_load_characters_two():
     con.close()
     assert result == [('Venom','Venomverse',1,1,0,0,0,'Venom'),('Venom','Sinister Six',1,1,0,0,0,'Villains'),]
 
+"""
+Tests basic adversary input
+"""
+def test_load_adversary_one():
+    load_adversaries("../legendary.db", "../data/adversaries.csv")
+    con = sqlite3.connect("../legendary.db")
+    cur = con.cursor()
+
+    select_statement = """
+                                SELECT *
+                                FROM adversary 
+                                WHERE adversary.name = 'Code Red';"""
+
+    result = cur.execute(select_statement).fetchall()
+    con.close()
+    assert result == [('Code Red', 'World War Hulk'),]
+
 test_clean_line_one()
 test_clean_line_two()
 test_clean_line_three()
@@ -103,3 +121,5 @@ test_create_tables_one()
 
 test_load_characters_one()
 test_load_characters_two()
+
+test_load_adversary_one()

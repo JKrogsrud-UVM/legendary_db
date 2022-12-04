@@ -114,6 +114,23 @@ def load_characters(db_path, char_data_path):
 
     con.close()
 
+def load_adversaries(db_path, adv_data_path):
+    con = sqlite3.connect(db_path)  # initiates the database and creates it if not loaded
+    cur = con.cursor()
+    # Repeatedly call helper function clean_line on every line of characters.csv
+    with open(adv_data_path) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        for row in reader:
+
+            # print(cleaned)
+            exec_str = "INSERT OR IGNORE INTO adversary(name, expansion) " \
+                       "VALUES('" + str(row[0]) + "','" + str(SET_DICT[row[1]]) + "');"
+            print(exec_str)
+            cur.execute(exec_str)
+            con.commit()
+
+    con.close()
+
 def clean_list(line):
     # every line of the .csv file looks like:
     # [name, team affiliation, common card #1 classes, common card #2 classes, uncommon card classes, rare card classes]

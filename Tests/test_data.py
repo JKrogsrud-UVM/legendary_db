@@ -1,6 +1,7 @@
 from db.data import clean_list
 from db.data import create_tables
 from db.data import load_characters
+from db.data import load_henchmen
 from db.data import load_adversaries
 from db.data import load_mastermind
 from db.data import load_scheme
@@ -123,7 +124,7 @@ Tests basic henchmen loading
 """
 def test_load_henchmen_one():
     fname = os.path.join(os.path.dirname(__file__), "henchmen.csv")
-    load_adversaries("legendary.db", fname)
+    load_henchmen("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 

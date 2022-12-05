@@ -71,7 +71,7 @@ def test_load_characters_one():
     create_tables("legendary.db")
     fname = os.path.join(os.path.dirname(__file__), 'characters.csv')
     load_characters("legendary.db", fname)
-    con = sqlite3.connect("../legendary.db")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
     select_statement = """

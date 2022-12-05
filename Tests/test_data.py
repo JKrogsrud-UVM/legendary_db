@@ -131,7 +131,7 @@ def test_load_henchmen_one():
     select_statement = """
                         SELECT *
                         FROM henchmen 
-                        WHERE adversary.name = 'Phalanx';"""
+                        WHERE henchmen.name = 'Phalanx';"""
 
     result = cur.execute(select_statement).fetchall()
     con.close()

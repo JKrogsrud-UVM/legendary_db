@@ -89,9 +89,9 @@ def test_load_characters_two():
     cur = con.cursor()
 
     select_statement = """
-                            SELECT *
-                            FROM character 
-                            WHERE character.name = 'Venom';"""
+                        SELECT *
+                        FROM character 
+                        WHERE character.name = 'Venom';"""
 
     result = cur.execute(select_statement).fetchall()
     con.close()
@@ -106,9 +106,9 @@ def test_load_adversary_one():
     cur = con.cursor()
 
     select_statement = """
-                                SELECT *
-                                FROM adversary 
-                                WHERE adversary.name = 'Code Red';"""
+                        SELECT *
+                        FROM adversary 
+                        WHERE adversary.name = 'Code Red';"""
 
     result = cur.execute(select_statement).fetchall()
     con.close()
@@ -123,9 +123,9 @@ def test_load_henchmen_one():
     cur = con.cursor()
 
     select_statement = """
-                                    SELECT *
-                                    FROM henchmen 
-                                    WHERE adversary.name = 'Phalanx';"""
+                        SELECT *
+                        FROM henchmen 
+                        WHERE adversary.name = 'Phalanx';"""
 
     result = cur.execute(select_statement).fetchall()
     con.close()
@@ -140,9 +140,9 @@ def test_load_mastermind_one():
     cur = con.cursor()
 
     select_statement = """
-                                    SELECT *
-                                    FROM mastermind 
-                                    WHERE mastermind.name = 'Dr. Doom';"""
+                        SELECT *
+                        FROM mastermind 
+                        WHERE mastermind.name = 'Dr. Doom';"""
 
     result = cur.execute(select_statement).fetchall()
     con.close()
@@ -157,9 +157,9 @@ def test_load_scheme_one():
     cur = con.cursor()
 
     select_statement = """
-                                    SELECT *
-                                    FROM scheme 
-                                    WHERE scheme.name = 'The Traitor';"""
+                        SELECT *
+                        FROM scheme 
+                        WHERE scheme.name = 'The Traitor';"""
 
     result = cur.execute(select_statement).fetchall()
     con.close()

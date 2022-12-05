@@ -4,6 +4,7 @@ from db.data import load_characters
 from db.data import load_adversaries
 from db.data import load_mastermind
 from db.data import load_scheme
+import os
 import sqlite3
 
 def test_data_one():
@@ -67,7 +68,8 @@ Test a basic SELECT statement to verify characters have been inserted correctly
 
 """
 def test_load_characters_one():
-    load_characters("legendary.db", "characters.csv")
+    fname = os.path.join(os.path.dirname(__file__), 'characters.csv')
+    load_characters("legendary.db", fname)
     con = sqlite3.connect("../legendary.db")
     cur = con.cursor()
 

@@ -68,9 +68,6 @@ Test a basic SELECT statement to verify characters have been inserted correctly
 
 """
 def test_load_characters_one():
-    print(os.getcwd())
-    os.chdir('..')
-    print(os.getcwd())
     load_characters("../legendary.db", "../data/characters.csv")
     con = sqlite3.connect("../legendary.db")
     cur = con.cursor()

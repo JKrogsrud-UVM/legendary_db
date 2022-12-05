@@ -68,7 +68,6 @@ Test a basic SELECT statement to verify characters have been inserted correctly
 
 """
 def test_load_characters_one():
-    create_tables("legendary.db")
     fname = os.path.join(os.path.dirname(__file__), 'characters.csv')
     load_characters("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
@@ -87,7 +86,8 @@ def test_load_characters_one():
 Tests a search with name that will have multiple results
 """
 def test_load_characters_two():
-    load_characters("legendary.db", "characters.csv")
+    fname = os.path.join(os.path.dirname(__file__), 'characters.csv')
+    load_characters("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
@@ -104,7 +104,8 @@ def test_load_characters_two():
 Tests basic adversary loading
 """
 def test_load_adversary_one():
-    load_adversaries("legendary.db", "adversaries.csv")
+    fname = os.path.join(os.path.dirname(__file__), "adversaries.csv")
+    load_adversaries("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
@@ -121,7 +122,8 @@ def test_load_adversary_one():
 Tests basic henchmen loading 
 """
 def test_load_henchmen_one():
-    load_adversaries("legendary.db", "henchmen.csv")
+    fname = os.path.join(os.path.dirname(__file__), "henchmen.csv")
+    load_adversaries("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
@@ -138,7 +140,8 @@ def test_load_henchmen_one():
 Tests basic mastermind loading
 """
 def test_load_mastermind_one():
-    load_mastermind("legendary.db", "masterminds.csv")
+    fname = os.path.join(os.path.dirname(__file__), "masterminds.csv")
+    load_mastermind("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
@@ -155,7 +158,8 @@ def test_load_mastermind_one():
 Tests basic scheme loading
 """
 def test_load_scheme_one():
-    load_scheme("legendary.db", "schemes.csv")
+    fname = os.path.join(os.path.dirname(__file__), "schemes.csv")
+    load_scheme("legendary.db", fname)
     con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 

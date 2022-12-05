@@ -53,8 +53,8 @@ tests whether the Tables have been created by checking their table names exist i
 output: 5
 """
 def test_create_tables_one():
-    create_tables("../legendary.db")
-    con = sqlite3.connect("../legendary.db")
+    create_tables("legendary.db")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
     result = cur.execute("""SELECT name
                             FROM sqlite_master
@@ -67,7 +67,7 @@ Test a basic SELECT statement to verify characters have been inserted correctly
 
 """
 def test_load_characters_one():
-    load_characters("../legendary.db", "../data/characters.csv")
+    load_characters("legendary.db", "characters.csv")
     con = sqlite3.connect("../legendary.db")
     cur = con.cursor()
 
@@ -84,8 +84,8 @@ def test_load_characters_one():
 Tests a search with name that will have multiple results
 """
 def test_load_characters_two():
-    load_characters("../legendary.db", "../data/characters.csv")
-    con = sqlite3.connect("../legendary.db")
+    load_characters("legendary.db", "characters.csv")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
     select_statement = """
@@ -101,8 +101,8 @@ def test_load_characters_two():
 Tests basic adversary loading
 """
 def test_load_adversary_one():
-    load_adversaries("../legendary.db", "../data/adversaries.csv")
-    con = sqlite3.connect("../legendary.db")
+    load_adversaries("legendary.db", "adversaries.csv")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
     select_statement = """
@@ -118,8 +118,8 @@ def test_load_adversary_one():
 Tests basic henchmen loading 
 """
 def test_load_henchmen_one():
-    load_adversaries("../legendary.db", "../data/henchmen.csv")
-    con = sqlite3.connect("../legendary.db")
+    load_adversaries("legendary.db", "henchmen.csv")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
     select_statement = """
@@ -135,8 +135,8 @@ def test_load_henchmen_one():
 Tests basic mastermind loading
 """
 def test_load_mastermind_one():
-    load_mastermind("../legendary.db", "../data/masterminds.csv")
-    con = sqlite3.connect("../legendary.db")
+    load_mastermind("legendary.db", "masterminds.csv")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
     select_statement = """
@@ -152,8 +152,8 @@ def test_load_mastermind_one():
 Tests basic scheme loading
 """
 def test_load_scheme_one():
-    load_scheme("../legendary.db", "../data/schemes.csv")
-    con = sqlite3.connect("../legendary.db")
+    load_scheme("legendary.db", "schemes.csv")
+    con = sqlite3.connect("legendary.db")
     cur = con.cursor()
 
     select_statement = """

@@ -1,9 +1,10 @@
-from legendary_db.data import clean_list
-from legendary_db.data import create_tables
-from legendary_db.data import load_characters
-from legendary_db.data import load_adversaries
-from legendary_db.data import load_mastermind
-from legendary_db.data import load_scheme
+# from legendary_db.data import clean_list
+from legendary_db.data import *
+# from legendary_db.data import create_tables
+# from legendary_db.data import load_characters
+# from legendary_db.data import load_adversaries
+# from legendary_db.data import load_mastermind
+# from legendary_db.data import load_scheme
 import sqlite3
 import os
 

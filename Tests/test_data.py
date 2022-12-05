@@ -1,12 +1,10 @@
-# from legendary_db.data import clean_list
-from legendary_db.data import *
-# from legendary_db.data import create_tables
-# from legendary_db.data import load_characters
-# from legendary_db.data import load_adversaries
-# from legendary_db.data import load_mastermind
-# from legendary_db.data import load_scheme
+from db.data import clean_list
+from db.data import create_tables
+from db.data import load_characters
+from db.data import load_adversaries
+from db.data import load_mastermind
+from db.data import load_scheme
 import sqlite3
-import os
 
 def test_data_one():
     assert True
